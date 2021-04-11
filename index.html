@@ -1,0 +1,120 @@
+<html manifest="Cache.manifest">
+
+<head>
+    <meta charset="utf-8" />
+    <title>7.55 GoldHen Host Menu</title>
+    <link rel="shortcut icon" href="favicon.ico"></link>
+</head>   
+<script>
+window.applicationCache.ondownloading = function()
+{
+	alert("Caching started !!")
+};
+
+window.applicationCache.onprogress = function(a)
+{
+	document.getElementById("progress").innerHTML="<h3>Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed</h3>";
+};
+
+window.applicationCache.oncached = window.applicationCache.onupdateready = function()
+{
+	alert("Page Cached!!")
+};
+</script>
+<div id="progress"></div>
+
+<style>
+.btn {
+width: 200px;
+height: 50px;
+padding-top: 10px;
+padding-bottom: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+margin-top: 15px;
+margin-bottom: 5px;
+margin-left: 15px;
+margin-right: 5px;
+border-bottom-width: 0px;
+border-right-width: 0px;
+border-top-width: 0px;
+border-left-width: 0px;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+cursor: pointer;
+border-radius: 25px;
+}
+.old {
+width: 100px;
+height: 50px;
+padding-top: 10px;
+padding-bottom: 10px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 20px;
+margin-top: 15px;
+margin-bottom: 5px;
+margin-left: 15px;
+margin-right: 5px;
+border-bottom-width: 0px;
+border-right-width: 0px;
+border-top-width: 0px;
+border-left-width: 0px;
+-webkit-transition-duration: 0.4s;
+transition-duration: 0.4s;
+cursor: pointer;
+border-radius: 25px;
+}
+.btn-main {
+background-color: black;
+color: white;
+border-radius: 20px;
+}
+.btn-main:hover {
+background-color: transparent;
+color: white;
+border-radius: 25px;
+}
+.btn-old {
+background-color: black;
+color: white;
+border-radius: 20px;
+}
+.btn-old:hover {
+background-color: transparent;
+color: white;
+border-radius: 25px;
+}
+</style>
+
+<body style="background-color:#3462a8;color:white;font-size:20px;text-align:center;">
+<h1 style='font-size:40px;margin:0;'>7.55 GoldHen Host Menu</h1>
+<h3 style='font-size:26px;margin:0;'>Little Version by Chronoss</h3>
+<hr><br><br>
+<i><p>This host is for users that only use necessary payloads<br></p></i>
+<i><div id=mybuttons style=text-align:center>
+<a href="payload.html#p0=mira/mira.js&p1=goldhen.js"><button class="btn btn-main" onclick=hen()> GoldHen v1.1</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_BinLoader9021.js"><button class="btn btn-main" onclick=bin()> BinLoader</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_PS4Debug.js"><button class="btn btn-main" onclick=bug()> PS4Debug </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_WebRTE.js"><button class="btn btn-main" onclick=rte()> PS4 Trainer </button></a><br>
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_App2usb.js"><button class="btn btn-main" onclick=app()> App2USB </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_Dumper.js"><button class="btn btn-main" onclick=dum()> Dumper </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=linux/1gb.js"><button class="btn btn-main" onclick=bug()> Linux 1G</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=linux/3gb.js"><button class="btn btn-main" onclick=rte()> Linux 3G</button></a>
+</div>
+<div style="position:fixed;left:0;bottom:40px;width:100%;font-size:16px;opacity:0;">
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_WebRTE.js"><button class="old btn-old"> 6.72 </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=mira/pl_WebRTE.js"><button class="old btn-old"> 7.02</button></a></div>
+<div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
+<hr>*7.5x GoldHEN Host Menu, little version by Chronoss, host by Leefull&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*PS4 Firmware <span id="PS4fw"></span><hr>
+</div>
+<script>
+UA = navigator.userAgent.substring(navigator.userAgent.indexOf("7.55 (") + 28, navigator.userAgent.indexOf(") Apple"));
+PS4fw.innerHTML="v"+UA+" Detected";
+if (UA != "7.55") {PS4fw.innerHTML="Currently Spoofed To v"+UA;};
+</script>
+</body>
+</html>
