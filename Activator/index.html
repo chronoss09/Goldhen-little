@@ -28,40 +28,11 @@ function preloadScripts(lst)
     }
 }
 
-function getHashParams()
-{
-    var ans = {};
-    var p = document.location.hash.substr(1).split("&");
-    for(var i = 0; i < p.length; i++)
-    {
-        var kv = p[i].split('=');
-        var k = kv.shift();
-        ans[k] = decodeURIComponent(kv.join('='));
-    }
-    return ans;
-}
-
-function done()
-{
-    if(main_ret == 0 || main_ret == 179)
-    {
-        alert("You're all set, Jailbreak OK !");
-        read_ptr_at(0);
-    }
-    else
-        alert("Jailbreak failed! Reboot your PS4 and try again.");
-}
+function done(){}
 
 window.midExploit = function()
 {
-    var params = getHashParams();
-    var scripts = ['blob.js', 'jb.js'];
-    if('p0' in params)
-        scripts.push(params.p0);
-    if('p1' in params)
-        scripts.push(params.p1);
-    scripts.push('netcat.js');
-    preloadScripts(scripts, go);
+    preloadScripts(['../blob.js', '../jb.js', '../mira/mira.js', 'payload.js', '../netcat.js', 'frontend.js'], go);
 }
 
 window.postExploit = function()
@@ -74,9 +45,9 @@ window.postExploit = function()
     }, 100);
 };
 </script>
-<script src="webkit-7.50/utils.js"></script>
-<script src="webkit-7.50/int64.js"></script>
-<script src="webkit-7.50/ps4.js"></script>
+<script src="../webkit-7.50/utils.js"></script>
+<script src="../webkit-7.50/int64.js"></script>
+<script src="../webkit-7.50/ps4.js"></script>
 <button style=opacity:0 id="input1" onfocus="handle2()"></button>
 <button style=opacity:0 id="input2"></button>
 <button style=opacity:0 id="input3" onfocus="handle2()"></button>

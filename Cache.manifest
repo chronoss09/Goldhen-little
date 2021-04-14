@@ -1,7 +1,7 @@
 CACHE MANIFEST 
 # 7.5x GoldHen Host Menu 
-# v1.0 
-# 11/04/2021-23:57:18,71 
+# v1.1 
+# 14/04/2021- 6:53:17,69 
 
 
 CACHE: 
@@ -10,13 +10,18 @@ App2usb.js
 BinLoader9021.js
 blob.js
 Dumper.js
-goldhen.js
+Fan-Threshold.js
+goldhen0.js
+goldhen1.js
 index.html
 jb.js
 netcat.js
 payload.html
-PS4Debug.js
+ps4debug.js
 WebRTE.js
+Activator\frontend.js
+Activator\index.html
+Activator\payload.js
 linux\1gb.js
 linux\3gb.js
 mira\mira.js

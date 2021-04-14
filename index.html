@@ -3,25 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>7.55 GoldHen Host Menu</title>
-    <link rel="shortcut icon" href="favicon.ico"></link>
 </head>   
 <script>
-window.applicationCache.ondownloading = function()
-{
-	alert("Caching started !!")
-};
-
-window.applicationCache.onprogress = function(a)
-{
-	document.getElementById("progress").innerHTML="<h3>Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed</h3>";
-};
-
-window.applicationCache.oncached = window.applicationCache.onupdateready = function()
-{
-	alert("Page Cached!!")
-};
+function DLProgress(e){Percent=(Math.round(e.loaded / e.total * 100));window.msgs.innerHTML="Offline Cache installation statut : " + Percent + "%";}
+function DisplayCacheProgress(){setTimeout(function(){window.msgs.innerHTML="Page cached with success !!!";},1000);setTimeout(function(){window.msgs.innerHTML="Offline cache installed, quit and reload your webbrowser";},3000);}window.applicationCache.addEventListener("progress",DLProgress,false);window.applicationCache.oncached=function(e){DisplayCacheProgress();};window.applicationCache.onupdateready=function(e){DisplayCacheProgress();};
 </script>
-<div id="progress"></div>
 
 <style>
 .btn {
@@ -88,33 +74,99 @@ background-color: transparent;
 color: white;
 border-radius: 25px;
 }
+
+.rangefan {
+-webkit-appearance: none;
+vertical-align: middle;
+outline: 5;
+padding: 0;
+border: 1px solid #006400;
+background-image: linear-gradient(to right, blue, blue, green, yellow, orange, red, red);
+border-radius: 10px;
+width: 50%;
+}
+.rangefan::-webkit-slider-runnable-track {
+background-color: 0 0;
+height: 6px;
+border-radius: 3px;
+border: 1px solid transparent;
+}
+.rangefan::-webkit-slider-thumb {
+-webkit-appearance: none !important;
+border-radius: 100%;
+background-color: #fff;
+height: 18px;
+width: 18px;
+margin-top: -7px;
+}
+.rangefan:active::-ms-thumb {
+border: none;
+}
+#outputfan {
+border: 1px solid #d7dbdd;
+background: black;
+font-size: 15px;
+padding: 0.3em 0.3em;
+margin: 0.1em;
+border-radius: 3px;
+min-width: 2em;
+text-align: center;
+}
+#submitfan {
+border: 1px solid #d7dbdd;
+background: green;
+font-size: 15px;
+padding: 0.3em 0.3em;
+margin: 0.1em;
+border-radius: 3px;
+text-align: center;
+color:white;
+}
 </style>
 
 <body style="background-color:#3462a8;color:white;font-size:20px;text-align:center;">
 <h1 style='font-size:40px;margin:0;'>7.55 GoldHen Host Menu</h1>
 <h3 style='font-size:26px;margin:0;'>Little Version by Chronoss</h3>
-<hr><br><br>
+<hr><br><h3 id=msgs style='font-size:26px;margin:0;color:yellow;'></h3>
 <i><p>This host is for users that only use necessary payloads<br></p></i>
 <i><div id=mybuttons style=text-align:center>
-<a href="payload.html#p0=mira/mira.js&p1=goldhen.js"><button class="btn btn-main" onclick=hen()> GoldHen v1.1</button></a>
-<a href="payload.html#p0=mira/mira.js&p1=mira/BinLoader9021.js"><button class="btn btn-main" onclick=bin()> BinLoader</button></a>
-<a href="payload.html#p0=mira/mira.js&p1=mira/PS4Debug.js"><button class="btn btn-main" onclick=bug()> PS4Debug </button></a>
-<a href="payload.html#p0=mira/mira.js&p1=mira/WebRTE.js"><button class="btn btn-main" onclick=rte()> PS4 Trainer </button></a><br>
-<a href="payload.html#p0=mira/mira.js&p1=mira/App2usb.js"><button class="btn btn-main" onclick=app()> App2USB </button></a>
-<a href="payload.html#p0=mira/mira.js&p1=mira/Dumper.js"><button class="btn btn-main" onclick=dum()> Dumper </button></a>
-<a href="payload.html#p0=mira/mira.js&p1=linux/1gb.js"><button class="btn btn-main" onclick=bug()> Linux 1G</button></a>
-<a href="payload.html#p0=mira/mira.js&p1=linux/3gb.js"><button class="btn btn-main" onclick=rte()> Linux 3G</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=goldhen0.js"><button class="btn btn-main" style="color:yellow"> GoldHen v1.0</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=goldhen1.js"><button class="btn btn-main" style="color:yellow"> GoldHen v1.1</button></a><br>
+<a href="Activator/index.html"><button class="btn btn-main"> PS4 Web Activator</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=BinLoader9021.js"><button class="btn btn-main"> BinLoader</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=PS4Debug.js"><button class="btn btn-main"> PS4Debug </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=WebRTE.js"><button class="btn btn-main"> PS4 Trainer </button></a><br>
+<a href="payload.html#p0=mira/mira.js&p1=App2usb.js"><button class="btn btn-main"> App2USB </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=Dumper.js"><button class="btn btn-main"> Dumper </button></a>
+<a href="payload.html#p0=mira/mira.js&p1=linux/1gb.js"><button class="btn btn-main"> Linux 1G</button></a>
+<a href="payload.html#p0=mira/mira.js&p1=linux/3gb.js"><button class="btn btn-main"> Linux 3G</button></a>
 </div>
 <div style="position:fixed;left:0;bottom:40px;width:100%;font-size:16px;opacity:0;">
 <a href="payload.html#p0=mira/mira.js&p1=mira/pl_WebRTE.js"><button class="old btn-old"> 6.72 </button></a>
 <a href="payload.html#p0=mira/mira.js&p1=mira/pl_WebRTE.js"><button class="old btn-old"> 7.02</button></a></div>
 <div style="position:fixed;left:0;bottom:-8px;width:100%;font-size:16px;">
-<hr>*7.5x GoldHEN Host Menu, little version by Chronoss, host by Leefull&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*PS4 Firmware <span id="PS4fw"></span><hr>
+<button class="btn btn-main" style="color:red"> Fan Threshold</button>
+<div id="fanprogress" ><input id="inputfan" class="rangefan" type="range" min="45" max="85" step="1" /><output id="outputfan" style="color:red"></output><a href="payload.html#p0=mira/mira.js&p1=Fan-Threshold.js"><button id="submitfan">Submit</button></a></div>
+<hr>*Original host by Leefull, mod by Chronoss, PS4 Web Activator by Sleirsgoevy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*PS4 Firmware <span id="PS4fw"></span><hr>
 </div>
 <script>
 UA = navigator.userAgent.substring(navigator.userAgent.indexOf("7.55 (") + 28, navigator.userAgent.indexOf(") Apple"));
 PS4fw.innerHTML="v"+UA+" Detected";
 if (UA != "7.55") {PS4fw.innerHTML="Currently Spoofed To v"+UA;};
+</script>
+<script> // fancontrol
+    let defaultTemp = 78;
+    let outputFan =document.getElementById("outputfan");
+    null === localStorage.getItem("fancontrol") 
+    ? (localStorage.setItem("fancontrol", defaultTemp), outputFan.innerText = localStorage.getItem("fancontrol")) 
+    : outputFan.innerText = localStorage.getItem("fancontrol")
+    document.getElementById("inputfan").addEventListener("input", function (e) {
+        let temp = e.target.value;
+        localStorage.setItem("fancontrol", temp);
+        outputFan.innerText = localStorage.getItem("fancontrol");
+        
+    })
+    document.getElementById("inputfan").setAttribute("value", localStorage.getItem("fancontrol"));
 </script>
 </body>
 </html>
